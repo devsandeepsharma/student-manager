@@ -16,6 +16,13 @@
     border-radius: 8px;
 }
 
+.secondary {
+    background: #D1D5DB;
+    color: #374151;
+    border: 0;
+    border-radius: 8px;
+}
+
 .danger {
     background: #FEE2E2 !important;
     color: #DC2626 !important;
