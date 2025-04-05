@@ -1,6 +1,10 @@
+import Header from "./components/Layout/Header";
+
 const App = () => {
   return (
-    <h1>Student Manager</h1>
+    <div className="container">
+      <Header />
+    </div>
   )
 }
 
