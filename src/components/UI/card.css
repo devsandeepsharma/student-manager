@@ -1,0 +1,24 @@
+.card {
+    padding: 24px;
+    background-color: #ffffff;
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.card .card_title {
+    font-size: 22px;
+    color: #2D2D2D;
+    margin-bottom: 8px;
+}
+
+.card .flex-container {
+    justify-content: flex-start !important;
+    color: #5E5E5E;
+}
+
+.card .btn-container {
+    margin-top: 8px;
+}

@@ -16,6 +16,28 @@
     border-radius: 8px;
 }
 
+.danger {
+    background: #FEE2E2 !important;
+    color: #DC2626 !important;
+    border: 0;
+    border-radius: 8px;
+}
+
+.danger svg {
+    color: #DC2626 !important;
+}
+
+.info {
+    background: #FEF3C7 !important;
+    color: #CA8A04 !important;
+    border: 0;
+    border-radius: 8px;
+}
+
+.info svg {
+    color: #CA8A04 !important;
+}
+
 @media (min-width: 650px) {
     .btn {
         font-size: 18px;
