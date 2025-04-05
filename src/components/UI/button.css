@@ -1,0 +1,41 @@
+.btn {
+    padding: 8px 16px;
+    font-family: inherit;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.btn:active {
+    animation: bump 300ms ease-out;
+}
+
+.primary {
+    background: linear-gradient(to right, #3B82F6, #4F46E5);
+    color: #ffffff;
+    border: 0;
+    border-radius: 8px;
+}
+
+@media (min-width: 650px) {
+    .btn {
+        font-size: 18px;
+    }
+}
+
+@keyframes bump {
+    0% {
+        transform: scale(1);
+    }
+    10% {
+        transform: scale(0.9);
+    }
+    30% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
