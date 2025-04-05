@@ -1,0 +1,25 @@
+.input_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 8px;
+    width: 300px;
+}
+
+.input_wrapper input {
+    padding: 8px;
+    inset: 8px;
+    border-radius: 6px;
+    border: 1px solid;
+}
+
+.err-text {
+    color: #DC2626;
+    font-size: 14px;
+}
+
+@media (min-width: 450px) {
+    .input_wrapper {
+        width: 400px;
+    }
+}

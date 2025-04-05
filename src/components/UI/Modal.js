@@ -18,7 +18,6 @@ const Modal = ({
     const handleFormSubmit = (e) => {
         e.preventDefault();
         onModalSubmit();
-        closeModal();
     }
 
     const portalElement = document.getElementById("portal");
