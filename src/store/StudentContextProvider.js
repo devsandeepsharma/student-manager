@@ -1,13 +1,16 @@
 import { useState } from "react"
 
 import StudentContext from "./StudentContext"
+import { createStudentOnServer } from "../services/api";
 
 const StudentContextProvider = (props) => {
 
     const [students, setStudents] = useState([]);
 
-    const addStudent = (student) => {
-        setStudents(prev => [...prev, student]);
+    const addStudent = async (student) => {
+        const newStudent = await createStudentOnServer(student);
+        console.log(newStudent)
+        setStudents(prev => [...prev, newStudent]);
     }
 
     const removeStudent = (id) => {

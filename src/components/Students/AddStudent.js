@@ -46,7 +46,6 @@ const AddStudent = () => {
             })
         } else {
             addStudent({
-                "id": Date.now(), 
                 "title": studentName, 
                 "number": phone, 
                 "location": location
