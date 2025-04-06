@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 
 import StudentContext from "./StudentContext"
-import { createStudentOnServer, getStudentsFromServer } from "../services/api";
+import { createStudentOnServer, deleteStudentFromServer, getStudentsFromServer } from "../services/api";
 
 const StudentContextProvider = (props) => {
 
@@ -13,10 +13,11 @@ const StudentContextProvider = (props) => {
         setStudents(prev => [...prev, newStudent]);
     }
 
-    const removeStudent = (id) => {
+    const removeStudent = async (id) => {
+        await deleteStudentFromServer(id);
+
         setStudents(prev => {
             const filteredStudents = prev.filter(student => student.id !== id);
-
             return filteredStudents;
         })
     }

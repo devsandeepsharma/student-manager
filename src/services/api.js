@@ -48,3 +48,21 @@ export const createStudentOnServer = async (student) => {
         console.log(error.message);
     }
 }
+
+export const deleteStudentFromServer = async (id) => {
+    try {
+        const res = await fetch(
+            `${baseURL}/student/${id}.json`, 
+        {
+            method: "DELETE"
+        })
+
+        if(!res.ok) {
+            throw new Error("Deleting Student failed");
+        }
+
+        return id;
+    } catch (error) {
+        console.log(error.message);
+    }
+}
