@@ -50,3 +50,11 @@ A professional yet user-friendly **Student Manager** web app where users can add
 
 ## 📸 Preview
 
+<img src="./public/1.png" />
+<img src="./public/2.png" />
+<img src="./public/3.png" />
+<img src="./public/4.png" />
+<img src="./public/5.png" />
+<img src="./public/6.png" />
+<img src="./public/7.png" />
+<img src="./public/8.png" />
