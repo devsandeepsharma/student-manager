@@ -30,7 +30,7 @@ const Students = () => {
             <ul className="card_container">
                 {
                     students.map(item => (
-                        <li key={item.title}>
+                        <li key={item.id}>
                             <Card student={item} />
                         </li>
                     ))

@@ -1,7 +1,7 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 import StudentContext from "./StudentContext"
-import { createStudentOnServer } from "../services/api";
+import { createStudentOnServer, getStudentsFromServer } from "../services/api";
 
 const StudentContextProvider = (props) => {
 
@@ -40,6 +40,16 @@ const StudentContextProvider = (props) => {
         removeStudent: removeStudent,
         updateStudent: updateStudent
     }
+
+    useEffect(() => {
+        const loadStudents = async () => {
+            const loadedStudents = await getStudentsFromServer();
+            console.log("I'm running");
+            setStudents(loadedStudents);
+        }
+
+        loadStudents();
+    }, [])
 
     return (
         <StudentContext.Provider value={studentsContext}>
