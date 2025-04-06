@@ -1,9 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 import Modal from "../UI/Modal"
+import StudentContext from "../../store/StudentContext";
+import UIContext from "../../store/UIContext";
 import "./addStudent.css";
 
 const AddStudent = () => {
+
+    const {addStudent} = useContext(StudentContext);
+    const {closeModal} = useContext(UIContext);
 
     const [studentName, setStudentName] = useState("");
     const [phone, setPhone] = useState("");
@@ -28,10 +33,22 @@ const AddStudent = () => {
             errorObj.location = "Please write location!";
         }
 
-        if(errorObj) {
-            setError(errorObj);
-            return;
-        }
+        setError(errorObj);
+    
+        if (Object.keys(errorObj).length > 0) return;
+
+        addNewStudent(studentName, phone, location);
+    }
+
+    const addNewStudent = (studentName, phone, location) => {
+        const id = Math.floor(Math.random() * 6);
+        addStudent({
+                id, 
+                "title": studentName, 
+                "number": phone, 
+                "location": location
+            });
+        closeModal();
     }
 
     return (

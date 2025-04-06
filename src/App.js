@@ -5,6 +5,7 @@ import AddStudent from "./components/Students/AddStudent";
 import Students from "./components/Students/Students";
 import UIContextProvider from "./store/UIContextProvider";
 import UIContext from "./store/UIContext";
+import StudentContextProvider from "./store/StudentContextProvider";
 
 const AppContent = () => {
 
@@ -23,9 +24,11 @@ const AppContent = () => {
 
 const App = () => {
   return (
-    <UIContextProvider>
-      <AppContent />
-    </UIContextProvider>
+    <StudentContextProvider>
+      <UIContextProvider>
+        <AppContent />
+      </UIContextProvider>
+    </StudentContextProvider>
   )
 }
 

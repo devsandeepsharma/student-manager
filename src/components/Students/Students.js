@@ -1,42 +1,17 @@
 import { useContext } from "react";
+
 import Button from "../UI/Button";
 import Card from "../UI/Card";
+import StudentContext from "../../store/StudentContext";
+import UIContext from "../../store/UIContext";
 import "./students.css";
 
 import { PlusCircle } from "lucide-react";
-import UIContext from "../../store/UIContext";
-
-const dummyData = [
-    {
-        title: "Ramesh",
-        location: "Bihar",
-        number: 855661656
-    },
-    {
-        title: "Rama Rao",
-        location: "Kerala",
-        number: 855661656
-    },
-    {
-        title: "Gopal",
-        location: "Gujrat",
-        number: 855661656
-    },
-    {
-        title: "Ramu",
-        location: "Bihar",
-        number: 855661656
-    },
-    {
-        title: "Student",
-        location: "Punjab",
-        number: 855661656
-    },
-]
 
 const Students = () => {
 
     const {openModal} = useContext(UIContext);
+    const {students} = useContext(StudentContext);
 
     return (
         <div className="students_wrapper">
@@ -54,7 +29,7 @@ const Students = () => {
             </div>
             <ul className="card_container">
                 {
-                    dummyData.map(item => (
+                    students.map(item => (
                         <li key={item.title}>
                             <Card student={item} />
                         </li>

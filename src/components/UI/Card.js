@@ -1,16 +1,23 @@
+import { useContext } from "react";
+
 import Button from "./Button";
+import StudentContext from "../../store/StudentContext";
+import UIContext from "../../store/UIContext";
 import "./card.css";
 
 import { LocateIcon, Pencil, Phone, Trash2 } from "lucide-react";
 
 const Card = (props) => {
 
+    const {removeStudent} = useContext(StudentContext);
+    const {openModal} = useContext(UIContext);
+
     const handleEdit = (student) => {
         console.log(student);
     }
 
-    const handleDelete = (student) => {
-        console.log(student);
+    const handleDelete = (id) => {
+        removeStudent(id);
     }
 
     return (
@@ -35,7 +42,7 @@ const Card = (props) => {
                 <Button 
                     className="danger" 
                     icon={<Trash2 size={16} />} 
-                    onClick={() => handleDelete(props.student)}
+                    onClick={() => handleDelete(props.student.id)}
                 >
                     Delete
                 </Button>
