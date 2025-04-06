@@ -66,3 +66,25 @@ export const deleteStudentFromServer = async (id) => {
         console.log(error.message);
     }
 }
+
+export const updateStudentOnServer = async (student) => {
+    try {
+        const res = await fetch(
+            `${baseURL}/student/${student.id}.json`, 
+        {
+            method: "PUT",
+            body: JSON.stringify(student),
+            headers: {
+                "Content-Type": "application/json",
+            }
+        })
+
+        if(!res.ok) {
+            throw new Error("Deleting Student failed");
+        }
+
+        return student;
+    } catch (error) {
+        console.log(error.message);
+    }
+}

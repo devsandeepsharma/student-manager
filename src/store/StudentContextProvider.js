@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 
-import StudentContext from "./StudentContext"
-import { createStudentOnServer, deleteStudentFromServer, getStudentsFromServer } from "../services/api";
+import StudentContext from "./StudentContext";
+import { createStudentOnServer, deleteStudentFromServer, getStudentsFromServer, updateStudentOnServer } from "../services/api";
 
 const StudentContextProvider = (props) => {
 
@@ -22,15 +22,14 @@ const StudentContextProvider = (props) => {
         })
     }
 
-    const updateStudent = (student) => {
+    const updateStudent = async (student) => {
+        await updateStudentOnServer(student);
         setStudents(prev => {
-            const currentStudent = prev.findIndex(prevStudents => prevStudents.id === student.id);
-
+            const currentStudent = prev.findIndex(s => s.id === student.id);
             const updated = [...prev];
             updated[currentStudent] = {
                 ...student
             }
-
             return updated;
         })
     }
