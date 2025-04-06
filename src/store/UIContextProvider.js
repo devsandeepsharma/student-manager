@@ -4,8 +4,15 @@ import UIContext from "./UIContext"
 
 const UIContextProvider = (props) => {
 
+    const intialNotificationState = {
+        showNotification: false,
+        status: null,
+        msg: null
+    }
+
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedStudent, setSelectedStudent] = useState(null);
+    const [notification, setNotification] = useState(intialNotificationState);
 
     const UIContextValues = {
         isModalOpen: isModalOpen,
@@ -21,6 +28,22 @@ const UIContextProvider = (props) => {
         addSelectedStudent: (student) => {
             setSelectedStudent(student);
         },
+
+        notification: notification,
+        showNotification: (data) => {
+            setNotification({
+                showNotification: true,
+                status: data.status,
+                msg: data.msg
+            });
+        },
+        hideNotification: () => {
+            setNotification({
+                showNotification: false,
+                status: null,
+                msg: null
+            });
+        }
     }
 
     return (
