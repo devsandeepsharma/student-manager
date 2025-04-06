@@ -16,15 +16,15 @@
     flex: 1;
 }
 
-.notification .success {
+.success {
     background: linear-gradient(to right, #4facfe, #00f2fe); /* Cool blue */
 }
 
-.notification .error {
+.error {
     background: linear-gradient(to right, #f12711, #f5af19); /* Fiery orange-red */
 }
 
-.notification .info {
+.info {
     background: linear-gradient(to right, #6a11cb, #2575fc); /* Purple/blue */
 }
 

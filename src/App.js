@@ -27,11 +27,11 @@ const AppContent = () => {
 
 const App = () => {
   return (
-    <StudentContextProvider>
-      <UIContextProvider>
+    <UIContextProvider>
+      <StudentContextProvider>
         <AppContent />
-      </UIContextProvider>
-    </StudentContextProvider>
+      </StudentContextProvider>
+    </UIContextProvider>
   )
 }
 
