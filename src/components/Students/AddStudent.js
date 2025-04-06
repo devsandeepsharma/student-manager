@@ -7,19 +7,19 @@ import "./addStudent.css";
 
 const AddStudent = () => {
 
-    const {addStudent} = useContext(StudentContext);
-    const {closeModal} = useContext(UIContext);
+    const {addStudent, updateStudent} = useContext(StudentContext);
+    const {closeModal, selectedStudent} = useContext(UIContext);
 
-    const [studentName, setStudentName] = useState("");
-    const [phone, setPhone] = useState("");
-    const [location, setLocation] = useState("");
+    const [studentName, setStudentName] = useState(selectedStudent?.title || "");
+    const [phone, setPhone] = useState(selectedStudent?.number || "");
+    const [location, setLocation] = useState(selectedStudent?.location || "");
     const [error, setError] = useState({
         studentName: "",
         phone: "",
         location: ""
     });
 
-    const validateFormData = () => {
+    const submitFormData = () => {
         const errorObj = {};
         if(studentName === "") {
             errorObj.studentName = "Please write name!";
@@ -37,22 +37,27 @@ const AddStudent = () => {
     
         if (Object.keys(errorObj).length > 0) return;
 
-        addNewStudent(studentName, phone, location);
-    }
-
-    const addNewStudent = (studentName, phone, location) => {
-        const id = Math.floor(Math.random() * 6);
-        addStudent({
-                id, 
+        if(selectedStudent) {
+            updateStudent({
+                "id": selectedStudent.id,
+                "title": studentName, 
+                "number": phone, 
+                "location": location
+            })
+        } else {
+            addStudent({
+                "id": Date.now(), 
                 "title": studentName, 
                 "number": phone, 
                 "location": location
             });
+        }
+
         closeModal();
     }
 
     return (
-        <Modal title="Add New Student" btnText="Add Student" onModalSubmit={validateFormData}>
+        <Modal title="Add New Student" btnText={selectedStudent ? "Update Student": "Add Student"} onModalSubmit={submitFormData}>
             <div className="">
                 <div className="input_wrapper">
                     <label 

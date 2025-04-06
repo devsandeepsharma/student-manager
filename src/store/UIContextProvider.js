@@ -5,6 +5,7 @@ import UIContext from "./UIContext"
 const UIContextProvider = (props) => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedStudent, setSelectedStudent] = useState(null);
 
     const UIContextValues = {
         isModalOpen: isModalOpen,
@@ -13,7 +14,13 @@ const UIContextProvider = (props) => {
         },
         closeModal: () => {
             setIsModalOpen(false);
-        }
+            setSelectedStudent(null);
+        },
+
+        selectedStudent: selectedStudent,
+        addSelectedStudent: (student) => {
+            setSelectedStudent(student);
+        },
     }
 
     return (

@@ -10,10 +10,11 @@ import { LocateIcon, Pencil, Phone, Trash2 } from "lucide-react";
 const Card = (props) => {
 
     const {removeStudent} = useContext(StudentContext);
-    const {openModal} = useContext(UIContext);
+    const {openModal, addSelectedStudent} = useContext(UIContext);
 
     const handleEdit = (student) => {
-        console.log(student);
+        openModal();
+        addSelectedStudent(student);
     }
 
     const handleDelete = (id) => {
